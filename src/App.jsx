@@ -65,13 +65,15 @@ function App() {
               </p>
             </section>
           </div>
-          <figure className="image-1">
-            <picture className="img_container">
-              <source media="(min-width:769px)" srcSet={FB_desktop} />
-              <source media="(min-width:651px)" srcSet={FB_tablet} />
-              <img src={FB_mobile} alt="football player" />
-            </picture>
-          </figure>
+          <div className="img_container">
+            <figure className="image-1">
+              <picture>
+                <source media="(min-width:1401px)" srcSet={FB_desktop} />
+                <source media="(min-width:671px)" srcSet={FB_tablet} />
+                <img src={FB_mobile} alt="football player" />
+              </picture>
+            </figure>
+          </div>
           <div className="image-2"></div>
           <div className="image-3"></div>
           <div className="slider_wrapper">
@@ -164,13 +166,15 @@ function App() {
               </p>
             </section>
           </div>
-          <figure className="image-1">
-            <picture className="img_container">
-              <source media="(min-width:769px)" srcSet={Bas_desktop} />
-              <source media="(min-width:651px)" srcSet={Bas_tablet} />
-              <img src={Bas_mobile} alt="basketball player" />
-            </picture>
-          </figure>
+          <div className="img_container">
+            <figure className="image-1">
+              <picture className="img_container">
+                <source media="(min-width:1401px)" srcSet={Bas_desktop} />
+                <source media="(min-width:671px)" srcSet={Bas_tablet} />
+                <img src={Bas_mobile} alt="basketball player" />
+              </picture>
+            </figure>
+          </div>
           <div className="image-2"></div>
           <div className="image-3"></div>
           <div className="slider_wrapper">

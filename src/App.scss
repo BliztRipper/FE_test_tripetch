@@ -19,26 +19,25 @@
   font-style: normal;
 }
 
-// img responsive
-@mixin img-responsive {
-  width: 100%;
-  height: auto;
-}
-
 // Screen size breakpoint
 @mixin respond($breakpoint) {
-  @if ($breakpoint == smallScreen) {
-    @media (max-width: 1500px) {
+  @if ($breakpoint == xlScreen) {
+    @media (max-width: 1650px) {
+      @content;
+    }
+  }
+  @if ($breakpoint == lgScreen) {
+    @media (max-width: 1400px) {
       @content;
     }
   }
   @if ($breakpoint == tablet) {
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       @content;
     }
   }
   @if ($breakpoint == mobile) {
-    @media (max-width: 650px) {
+    @media (max-width: 670px) {
       @content;
     }
   }
@@ -61,7 +60,6 @@
     display: block;
     background: #f5f4f9;
     height: 300px;
-    margin-top: 90vw;
     overflow: hidden;
   }
 }
@@ -70,6 +68,7 @@
 .athlets_container {
   // grid template section
   max-width: 100%;
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -89,6 +88,8 @@
       color: #e7e7e7;
       font-size: 5.625rem;
       margin-bottom: 0;
+      position: relative;
+      z-index: 2;
     }
   }
 
@@ -134,9 +135,8 @@
     margin: 0;
     img {
       position: absolute;
+      top: 25px;
       left: 20%;
-      top: 20%;
-      width: 57%;
     }
   }
 
@@ -191,35 +191,8 @@
     margin-top: 0;
   }
 
-  // Small screen breakpoint
-  @include respond(smallScreen) {
-    .header {
-      padding-left: 2.5rem;
-    }
-    .sub_header-1 {
-      grid-area: sub_header-1;
-      padding-right: 1rem;
-      padding-left: 2.5rem;
-    }
-    .sub_header-2 {
-      grid-area: sub_header-2;
-      padding-right: 1rem;
-      padding-left: 2.5rem;
-    }
-    .sub_header-3 {
-      grid-area: sub_header-3;
-      padding-right: 1rem;
-      padding-left: 2.5rem;
-    }
-    .image-1 {
-      grid-area: image-1;
-      img {
-        width: 75%;
-      }
-    }
-  }
-
-  @include respond(tablet) {
+  // lgScreen breakpoint Athlets
+  @include respond(lgScreen) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -229,20 +202,35 @@
       "image-1 sub_header-1 sub_header-1"
       "image-2 sub_header-2 sub_header-2"
       "image-3 sub_header-3 sub_header-3";
+    .sub_header-1,
+    .sub_header-2,
+    .sub_header-3 {
+      padding-right: 1rem;
+    }
 
     .image-1 {
       grid-area: image-1;
       img {
         left: 0;
-        top: 35%;
-        width: 143%;
+        top: 15vw;
       }
     }
   }
+
+  // tablet breakpoint Athlets
+  @include respond(tablet) {
+    .image-1 {
+      img {
+        left: -40px;
+      }
+    }
+  }
+
   // Mobile breakpoint Athlets
   @include respond(mobile) {
     display: flex;
     flex-direction: column;
+    height: auto;
     .sub_header-slide {
       margin: 1rem;
       .sub_header {
@@ -295,33 +283,24 @@
         @include font-style();
         color: #e7e7e7;
         font-size: 3.125rem;
+        margin-left: 2rem;
       }
     }
-    .image-1 {
-      display: block;
+    .img_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       img {
-        @include img-responsive();
-        position: absolute;
-        width: 83%;
-        left: 12%;
+        position: relative;
+        z-index: 5;
+        left: unset;
+        top: 60px;
       }
     }
-    .sub_header-1 {
-      display: none;
-      visibility: hidden;
-    }
-    .sub_header-2 {
-      display: none;
-      visibility: hidden;
-    }
-    .sub_header-3 {
-      display: none;
-      visibility: hidden;
-    }
-    .image-2 {
-      display: none;
-      visibility: hidden;
-    }
+    .sub_header-1,
+    .sub_header-2,
+    .sub_header-3,
+    .image-2,
     .image-3 {
       display: none;
       visibility: hidden;
@@ -332,7 +311,9 @@
 // Player Content
 .player_container {
   // grid template section
+  overflow: hidden;
   max-width: 100%;
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -391,14 +372,15 @@
       line-height: 1.75rem;
     }
   }
+
   .image-1 {
     grid-area: image-1;
     position: relative;
     margin: 0;
     img {
       position: absolute;
-      width: 90%;
-      right: 35%;
+      right: 30%;
+      z-index: 0;
     }
   }
 
@@ -450,41 +432,20 @@
     @include font-style();
     color: #000;
     font-size: 1.25rem;
+    position: relative;
+    z-index: 1;
   }
 
-  // Small screen breakpoint 1500px
-  @include respond(smallScreen) {
-    .header {
-      grid-area: header;
-      .main_header {
-        padding-left: 2.5rem;
-      }
-    }
-    .sub_header-1 {
-      grid-area: sub_header-1;
-      padding-left: 2.5rem;
-      padding-right: 1rem;
-    }
-    .sub_header-2 {
-      grid-area: sub_header-2;
-      padding-left: 2.5rem;
-      padding-right: 1rem;
-    }
-    .sub_header-3 {
-      grid-area: sub_header-3;
-      padding-left: 2.5rem;
-      padding-right: 1rem;
-    }
+  @include respond(xlScreen) {
     .image-1 {
       grid-area: image-1;
       img {
-        position: absolute;
-        top: 25%;
+        right: -25%;
       }
     }
   }
 
-  @include respond(tablet) {
+  @include respond(lgScreen) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -498,9 +459,19 @@
       grid-area: image-1;
       img {
         right: 0%;
-        width: 165%;
-        top: 28%;
+        top: 50px;
       }
+    }
+    .header {
+      grid-area: header;
+      .main_header {
+        padding-left: 2.5rem;
+      }
+    }
+    .sub_header-1,
+    .sub_header-2,
+    .sub_header-3 {
+      padding-left: 2rem;
     }
   }
 
@@ -508,6 +479,12 @@
   @include respond(mobile) {
     display: flex;
     flex-direction: column;
+    height: auto;
+    .header {
+      .main_header {
+        margin-left: 0;
+      }
+    }
     .sub_header-slide {
       margin: 1rem;
       .sub_header {
@@ -560,34 +537,24 @@
         @include font-style();
         color: #e7e7e7;
         font-size: 3.125rem;
+        margin-left: 0;
       }
     }
-    .image-1 {
-      display: block;
+    .img_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       img {
-        @include img-responsive();
-        position: absolute;
-        width: 100%;
-        left: 0%;
-        margin-top: 24vw;
+        position: relative;
+        z-index: 5;
+        left: unset;
+        top: 60px;
       }
     }
-    .sub_header-1 {
-      display: none;
-      visibility: hidden;
-    }
-    .sub_header-2 {
-      display: none;
-      visibility: hidden;
-    }
-    .sub_header-3 {
-      display: none;
-      visibility: hidden;
-    }
-    .image-2 {
-      display: none;
-      visibility: hidden;
-    }
+    .sub_header-1,
+    .sub_header-2,
+    .sub_header-3,
+    .image-2,
     .image-3 {
       display: none;
       visibility: hidden;

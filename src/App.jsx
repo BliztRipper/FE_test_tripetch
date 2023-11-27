@@ -1,7 +1,11 @@
 import Slider from "react-slick";
 
-import Bas_desktop from "../src/assets/bas_desktop.svg"
-import FB_desktop from "../src/assets/bas_desktop.svg"
+import Bas_desktop from "../src/assets/bas_desktop.svg";
+import Bas_mobile from "../src/assets/bas_mobile.svg";
+import Bas_tablet from "../src/assets/bas_tablet.svg";
+import FB_desktop from "../src/assets/fb_desktop.svg";
+import FB_mobile from "../src/assets/fb_mobile.svg";
+import FB_tablet from "../src/assets/fb_tablet.svg";
 
 import "./App.scss";
 
@@ -64,11 +68,8 @@ function App() {
           <figure className="image-1">
             <picture className="img_container">
               <source media="(min-width:769px)" srcSet={FB_desktop} />
-              <source
-                media="(min-width:651px)"
-                srcSet="../src/assets/fb_tablet.svg"
-              />
-              <img src="../src/assets/fb_mobile.svg" alt="football player" />
+              <source media="(min-width:651px)" srcSet={FB_tablet} />
+              <img src={FB_mobile} alt="football player" />
             </picture>
           </figure>
           <div className="image-2"></div>
@@ -166,11 +167,8 @@ function App() {
           <figure className="image-1">
             <picture className="img_container">
               <source media="(min-width:769px)" srcSet={Bas_desktop} />
-              <source
-                media="(min-width:651px)"
-                srcSet="../src/assets/bas_tablet.svg"
-              />
-              <img src="../src/assets/bas_mobile.svg" alt="basketball player" />
+              <source media="(min-width:651px)" srcSet={Bas_tablet} />
+              <img src={Bas_mobile} alt="basketball player" />
             </picture>
           </figure>
           <div className="image-2"></div>

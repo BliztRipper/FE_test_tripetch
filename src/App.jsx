@@ -1,5 +1,8 @@
 import Slider from "react-slick";
 
+import Bas_desktop from "../src/assets/bas_desktop.svg"
+import FB_desktop from "../src/assets/bas_desktop.svg"
+
 import "./App.scss";
 
 function App() {
@@ -60,10 +63,7 @@ function App() {
           </div>
           <figure className="image-1">
             <picture className="img_container">
-              <source
-                media="(min-width:769px)"
-                srcSet="../src/assets/fb_desktop.svg"
-              />
+              <source media="(min-width:769px)" srcSet={FB_desktop} />
               <source
                 media="(min-width:651px)"
                 srcSet="../src/assets/fb_tablet.svg"
@@ -165,10 +165,7 @@ function App() {
           </div>
           <figure className="image-1">
             <picture className="img_container">
-              <source
-                media="(min-width:769px)"
-                srcSet="../src/assets/bas_desktop.svg"
-              />
+              <source media="(min-width:769px)" srcSet={Bas_desktop} />
               <source
                 media="(min-width:651px)"
                 srcSet="../src/assets/bas_tablet.svg"
